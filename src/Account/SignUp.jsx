@@ -86,6 +86,7 @@ const SignUp = () => {
                                     <button className="btn btn-primary submit">Sign Up</button>
                                 </div>
                             </form>
+                            <hr />
                             {
                                 message ? <h4 className='text-center'>{message}</h4> : <h4 className='text-center'>{error}</h4>
                             }

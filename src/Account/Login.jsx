@@ -2,12 +2,11 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
-
 const Login = () => {
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
 
-    const { logIn } = useContext(AuthContext);
+    const { logIn, googleSignIn } = useContext(AuthContext);
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -21,16 +20,33 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setMessage("Logged in successfully");
-                setError("")
+                setError("");
             })
-            .then(error => {
+            .catch(error => {
                 console.log(error);
+                setMessage("");
+                setError(error.message);
+            });
+
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setMessage("Logged in successfully");
+                setError("");
+            })
+            .catch(error => {
                 setMessage("");
                 setError(error.message);
             })
     }
+
+
     return (
-        <div>
+        <div className="bg-base-200">
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
@@ -56,13 +72,16 @@ const Login = () => {
                                     <button className="btn btn-primary">Login</button>
                                 </div>
                             </form>
+                            <hr />
                             {
                                 message ? <h4 className='text-center'>{message}</h4> : <h4 className='text-center'>{error}</h4>
                             }
                         </div>
                     </div>
-
                 </div>
+            </div>
+            <div className="text-center pb-5">
+                <Link className="btn btn-primary" onClick={handleGoogleSignIn}>Sign in with Google</Link>
             </div>
         </div>
     );
