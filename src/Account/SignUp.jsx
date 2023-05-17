@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const SignUp = () => {
-    const [message, setMessage] = useState();
+    const [message, setMessage] = useState("");
     const [error, setError] = useState("");
+
+    const { createUser } = useContext(AuthContext);
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -25,10 +28,23 @@ const SignUp = () => {
             return;
         }
         else {
-            setMessage("Account has been craeted successfully.")
+            setMessage("Account has been craeted successfully")
             form.reset();
         }
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setMessage("Account has been craeted successfully");
+                setError("");
+            })
+            .catch(error => {
+                setMessage("");
+                setError(error.message);
+            })
     }
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -43,13 +59,13 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text">Image:</span>
                                     </label>
-                                    <input type="url" placeholder="image" name="image" className="input input-bordered" required/>
+                                    <input type="url" placeholder="image" name="image" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email:</span>
                                     </label>
-                                    <input type="text" placeholder="email" name="email" className="input input-bordered" required/>
+                                    <input type="text" placeholder="email" name="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
