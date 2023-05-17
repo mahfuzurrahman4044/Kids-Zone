@@ -28,18 +28,20 @@ const SignUp = () => {
             return;
         }
         else {
-            setMessage("Account has been craeted successfully")
-            form.reset();
+            // setMessage("Account has been craeted successfully")
+            
         }
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset();
                 setMessage("Account has been craeted successfully");
                 setError("");
             })
             .catch(error => {
+                console.log(error);
                 setMessage("");
                 setError(error.message);
             })

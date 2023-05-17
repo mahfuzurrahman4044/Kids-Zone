@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
+
+    const { logIn } = useContext(AuthContext);
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -12,13 +15,18 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
 
-        login(email, password)
+        logIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                console.log(user);
+                form.reset();
+                setMessage("Logged in successfully");
+                setError("")
             })
-            .then((error) => {
+            .then(error => {
                 console.log(error);
+                setMessage("");
+                setError(error.message);
             })
     }
     return (
@@ -48,8 +56,10 @@ const Login = () => {
                                     <button className="btn btn-primary">Login</button>
                                 </div>
                             </form>
+                            {
+                                message ? <h4 className='text-center'>{message}</h4> : <h4 className='text-center'>{error}</h4>
+                            }
                         </div>
-
                     </div>
 
                 </div>
