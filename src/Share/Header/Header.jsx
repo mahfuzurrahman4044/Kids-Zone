@@ -17,10 +17,11 @@ const Header = () => {
                             <li><Link to="/">My Toys</Link></li>
                             <li><Link to="/">Add Toy</Link></li>
                             <li><Link to="/">Blogs</Link></li>
+                            <li><Link to="/login">Log in</Link></li>
                         </ul>
                     </div>
                     <div className="logo-header">
-                        <img src={logo} alt="" />
+                        <Link to="/"><img src={logo} alt="" /></Link>
                     </div>
                 </div>
                 <div className="navbar-end hidden md:flex">
@@ -30,11 +31,9 @@ const Header = () => {
                         <li><Link to="/">My Toys</Link></li>
                         <li><Link to="/">Add Toy</Link></li>
                         <li><Link to="/">Blogs</Link></li>
+                        <li><Link to="/login">Log in</Link></li>
                     </ul>
                 </div>
-                {/* <div className="">
-                    <a className="btn">Get started</a>
-                </div> */}
             </div>
         </div>
     );
