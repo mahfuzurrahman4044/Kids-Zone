@@ -19,7 +19,7 @@ const Header = () => {
                             <li><Link to="/">Blogs</Link></li>
                         </ul>
                     </div>
-                    <div className="logo">
+                    <div className="logo-header">
                         <img src={logo} alt="" />
                     </div>
                 </div>
