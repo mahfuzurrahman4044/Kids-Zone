@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo/colorful-3d-logo-kids-zone-isolated-on-white-background.jpg"
 import "./Header.css"
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -13,11 +16,13 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/">All Toys</Link></li>
-                            <li><Link to="/">My Toys</Link></li>
-                            <li><Link to="/">Add Toy</Link></li>
                             <li><Link to="/">Blogs</Link></li>
-                            <li><Link to="/login">Log in</Link></li>
+                            <li><Link to="/">All Toys</Link></li>
+                            {
+                                user ? <><li><Link to="/">My Toys</Link></li>
+                                    <li><Link to="/">Add Toy</Link></li>
+                                    <li><Link to="/" className="btn btn-primary">Log out</Link></li></> : <li><Link to="/login">Log in</Link></li>
+                            }
                         </ul>
                     </div>
                     <div className="logo-header">
@@ -27,11 +32,13 @@ const Header = () => {
                 <div className="navbar-end hidden md:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/">All Toys</Link></li>
-                        <li><Link to="/">My Toys</Link></li>
-                        <li><Link to="/">Add Toy</Link></li>
                         <li><Link to="/">Blogs</Link></li>
-                        <li><Link to="/login">Log in</Link></li>
+                        <li><Link to="/">All Toys</Link></li>
+                        {
+                            user ? <><li><Link to="/">My Toys</Link></li>
+                                <li><Link to="/">Add Toy</Link></li>
+                                <li><Link to="/" className="btn btn-primary">Log out</Link></li></> : <li><Link to="/login">Log in</Link></li>
+                        }
                     </ul>
                 </div>
             </div>
