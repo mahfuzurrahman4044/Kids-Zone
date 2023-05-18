@@ -1,0 +1,45 @@
+.gallaryImg1 img {
+    height: 400px;
+    width: 600px;
+    position: relative;
+    top: 100px;
+}
+
+.gallaryImg2 img {
+    height: 350px;
+    width: 500px;
+    position: relative;
+    left: 200px;
+}
+
+.gallaryImg3 img {
+    height: 250px;
+    width: 400px;
+    position: relative;
+    left: 50px;
+    bottom: 50px;
+}
+
+@media screen and (max-width: 760px) {
+    .gallaryImg1 img {
+        height: 200px;
+        width: 300px;
+        position: relative;
+        top: 50px;
+    }
+
+    .gallaryImg2 img {
+        height: 175px;
+        width: 250px;
+        position: relative;
+        left: 100px;
+    }
+
+    .gallaryImg3 img {
+        height: 125px;
+        width: 200px;
+        position: relative;
+        left: 25px;
+        bottom: 25px;
+    }
+}

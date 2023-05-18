@@ -4,6 +4,9 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className="bg-slate-400">
+            <hr />
+            <hr />
+            <hr />
             <footer className="footer p-10 text-base-content">
                 <div>
                     <span className="footer-title">Services</span>

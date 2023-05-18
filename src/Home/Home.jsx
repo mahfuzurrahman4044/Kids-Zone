@@ -1,5 +1,5 @@
 import Banner from "./Banner/Banner";
-import Gallery from "./Gallery";
+import Gallery from "./Gallery/Gallery";
 import Shop from "./Shop";
 
 const Home = () => {
