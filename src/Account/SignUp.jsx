@@ -7,12 +7,13 @@ const SignUp = () => {
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateInfo } = useContext(AuthContext);
 
     const handleSignUp = (event) => {
         event.preventDefault();
         const form = event.target;
         const image = form.image.value;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
@@ -29,7 +30,7 @@ const SignUp = () => {
         }
         else {
             // setMessage("Account has been craeted successfully")
-            
+
         }
 
         createUser(email, password)
@@ -39,6 +40,13 @@ const SignUp = () => {
                 form.reset();
                 setMessage("Account has been craeted successfully");
                 setError("");
+                updateInfo(user, image, name)
+                    .then(() => {
+                        console.log("User Updated")
+                    })
+                    .catch(error => {
+                        console.log(error.message)
+                    })
             })
             .catch(error => {
                 console.log(error);
@@ -48,8 +56,8 @@ const SignUp = () => {
     }
 
     return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
+        <div className="bg-slate-400">
+            <div className="hero min-h-screen bg-slate-400">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Sign Up now!</h1>
@@ -65,9 +73,15 @@ const SignUp = () => {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
+                                        <span className="label-text">Name:</span>
+                                    </label>
+                                    <input type="text" placeholder="name" name="name" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
                                         <span className="label-text">Email:</span>
                                     </label>
-                                    <input type="text" placeholder="email" name="email" className="input input-bordered" required />
+                                    <input type="email" placeholder="email" name="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">

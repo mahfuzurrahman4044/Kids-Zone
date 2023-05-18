@@ -1,0 +1,8 @@
+.carouselImg {
+    width: 1300px;
+    height: 500px;
+    border: 1px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}

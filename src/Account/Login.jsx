@@ -46,14 +46,17 @@ const Login = () => {
 
 
     return (
-        <div className="bg-base-200">
-            <div className="hero min-h-screen bg-base-200">
+        <div className="bg-slate-400">
+            <div className="hero min-h-screen bg-slate-400">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
+                            <div className="text-center pb-5">
+                                <Link className="btn btn-primary" onClick={handleGoogleSignIn}>Sign in with Google</Link>
+                            </div>
                             <form onSubmit={handleLogin}>
                                 <div className="form-control">
                                     <label className="label">
@@ -67,7 +70,7 @@ const Login = () => {
                                     </label>
                                     <input type="password" placeholder="password" name="password" className="input input-bordered" />
                                 </div>
-                                <p className="my-2">New to Car Doctor? Please <Link to="/signup" className="btn btn-primary">Sign Up</Link></p>
+                                <p className="my-2">Are you to Car Doctor? Please <Link to="/signup" className="btn btn-primary lg:ms-4">Sign Up</Link></p>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
@@ -79,9 +82,6 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="text-center pb-5">
-                <Link className="btn btn-primary" onClick={handleGoogleSignIn}>Sign in with Google</Link>
             </div>
         </div>
     );

@@ -4,3 +4,26 @@
     border: 1px;
     border-radius: 100%;
 }
+
+.profile img {
+    height: 70px;
+    width: 70px;
+    border: 1px;
+    border-radius: 100%;
+}
+
+@media screen and (max-width: 760px) {
+    .profile img {
+        height: 40px;
+        width: 40px;
+        border: 1px;
+        border-radius: 100%;
+        margin-left: 13px;
+    }
+
+    .btn-logOut {
+        width: 60px;
+        height: 20px;
+        margin: 5px 0px 0px 13px;
+    }
+}

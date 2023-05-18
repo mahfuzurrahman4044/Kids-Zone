@@ -20,7 +20,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-200">
+            <div className="navbar bg-slate-400">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,7 +32,10 @@ const Header = () => {
                             {
                                 user ? <><li><Link to="/">My Toys</Link></li>
                                     <li><Link to="/">Add Toy</Link></li>
-                                    <li><Link className="btn btn-primary" onClick={handleLogOut}>Log out</Link></li></> : <li><Link to="/login">Log in</Link></li>
+                                    <div className="profile" title={`${user.displayName}`}>
+                                        <img src={user.photoURL} alt="" />
+                                    </div>
+                                    <li><Link className="btn btn-primary btn-logOut" title={user.displayName} onClick={handleLogOut}>Log out</Link></li></> : <li><Link to="/login">Log in</Link></li>
                             }
                             <li><Link to="/">Blogs</Link></li>
                         </ul>
@@ -48,7 +51,10 @@ const Header = () => {
                         {
                             user ? <><li><Link to="/">My Toys</Link></li>
                                 <li><Link to="/">Add Toy</Link></li>
-                                <li><Link className="btn btn-primary" onClick={handleLogOut}>Log out</Link></li></> : <li><Link to="/login">Log in</Link></li>
+                                <div className="profile" title={`${user.displayName}`}>
+                                    <img src={user.photoURL} alt="" />
+                                </div>
+                                <li><Link className="btn btn-primary mt-3 ms-2" onClick={handleLogOut}>Log out</Link></li></> : <li><Link to="/login">Log in</Link></li>
                         }
                         <li><Link to="/">Blogs</Link></li>
                     </ul>
