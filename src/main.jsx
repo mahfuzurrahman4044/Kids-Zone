@@ -10,6 +10,10 @@ import Home from './Home/Home';
 import Login from './Account/Login';
 import SignUp from './Account/SignUp';
 import AuthProvider from './Provider/AuthProvider';
+import AddToys from './Products/AddToys';
+import MyToys from './Products/MyToys';
+import AllToys from './Products/AllToys';
+
 
 const router = createBrowserRouter([
   {
@@ -27,6 +31,18 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>
+      },
+      {
+        path: '/addToys',
+        element: <AddToys></AddToys>
+      },
+      {
+        path: "/myToys",
+        element: <MyToys></MyToys>
+      },
+      {
+        path: "/allToys",
+        element: <AllToys></AllToys>
       }
     ]
   },

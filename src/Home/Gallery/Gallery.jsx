@@ -7,18 +7,19 @@ const Gallery = () => {
     return (
         <div className="bg-slate-400 lg:flex justify-around items-center">
             <div>
-                <h2 className="text-3xl font-semibold text-warning">
+                <h2 className="text-3xl font-semibold text-warning text-end">
                     Rev up the fun at Kids Zone
                 </h2>
                 <br />
-                <p>
+                <br />
+                <p className="text-end">
                     Discover an incredible world of vehicles that will ignite <br />
-                    your child's imagination. From speedy race cars to mighty <br />
+                    your child imagination. From speedy race cars to mighty <br />
                     monster trucks, we have it all! Watch as your little ones <br />
                     embark on epic adventures and create memories that will <br />
                     last a lifetime. Come visit us today and explore our vast <br />
-                    collection of vehicles, designed to fuel their dreams. Kids <br />
-                    Zone: Where playtime and imagination collide!" <br />
+                    collection of vehicles, designed to fuel their dreams. <br />
+                    Kids Zone: Where playtime and imagination collide!<br />
                     <br />
                     Feel free to modify and personalize this script to best suit <br />
                     your toy shop and target audience. Good luck with your <br /> banner!

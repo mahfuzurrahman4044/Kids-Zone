@@ -28,10 +28,10 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/">All Toys</Link></li>
+                            <li><Link to="/allToys">All Toys</Link></li>
                             {
-                                user ? <><li><Link to="/">My Toys</Link></li>
-                                    <li><Link to="/">Add Toy</Link></li>
+                                user ? <><li><Link to="/myToys">My Toys</Link></li>
+                                    <li><Link to="/addToys">Add Toy</Link></li>
                                     <div className="profile" title={`${user.displayName}`}>
                                         <img src={user.photoURL} alt="" />
                                     </div>
@@ -47,10 +47,10 @@ const Header = () => {
                 <div className="navbar-end hidden md:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/">All Toys</Link></li>
+                        <li><Link to="/allToys">All Toys</Link></li>
                         {
-                            user ? <><li><Link to="/">My Toys</Link></li>
-                                <li><Link to="/">Add Toy</Link></li>
+                            user ? <><li><Link to="/myToys">My Toys</Link></li>
+                                <li><Link to="/addToys">Add Toy</Link></li>
                                 <div className="profile" title={`${user.displayName}`}>
                                     <img src={user.photoURL} alt="" />
                                 </div>

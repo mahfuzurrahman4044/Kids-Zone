@@ -1,10 +1,15 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/'
 
     const { logIn, googleSignIn } = useContext(AuthContext);
     const handleLogin = (event) => {
@@ -18,6 +23,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true })
                 form.reset();
                 setMessage("Logged in successfully");
                 setError("");
@@ -35,6 +41,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                navigate(from, { replace: true })
                 setMessage("Logged in successfully");
                 setError("");
             })
