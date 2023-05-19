@@ -11,7 +11,7 @@ import Login from './Account/Login';
 import SignUp from './Account/SignUp';
 import AuthProvider from './Provider/AuthProvider';
 import AddToys from './Products/AddToys';
-import MyToys from './Products/MyToys';
+import MyToys from './Products/MyToys/MyToys';
 import AllToys from './Products/AllToys/AllToys';
 
 const router = createBrowserRouter([

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./AllToys.css";
 import { useLoaderData } from "react-router-dom";
-import AllToysCard from "../AllToysCard";
+import AllToysCard from "./AllToysTable";
 
 const AllToys = () => {
     const loadToys = useLoaderData();
@@ -13,7 +13,7 @@ const AllToys = () => {
     };
 
     return (
-        <div className="bg-slate-400">
+        <div className="bg-slate-400 pt-5">
             {loadToys.length === 0 ? (
                 <div className="py-5 flex justify-center">
                     <div className="allToys border border-blue-400 rounded-md bg-base-200 flex justify-center items-center">
@@ -40,13 +40,8 @@ const AllToys = () => {
                         </table>
                     </div>
                     {loadToys.length > 20 && !showAll && (
-                        <div className="flex justify-center mt-4">
-                            <button
-                                className="btn btn-primary"
-                                onClick={handleShowAll}
-                            >
-                                Show All
-                            </button>
+                        <div className="flex justify-center p-4">
+                            <button className="btn btn-primary" onClick={handleShowAll}>Show All</button>
                         </div>
                     )}
                 </>
