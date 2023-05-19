@@ -14,7 +14,6 @@ import AddToys from './Products/AddToys';
 import MyToys from './Products/MyToys';
 import AllToys from './Products/AllToys';
 
-
 const router = createBrowserRouter([
   {
     path: "/",

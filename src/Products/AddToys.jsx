@@ -1,9 +1,96 @@
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const AddToys = () => {
+    const { user } = useContext(AuthContext);
+    const btnSubmit = (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const image = form.image.value;
+        const name = form.name.value;
+        const email = form.email.value;
+        const subCategory = form.subCategory.value;
+        const price = form.price.value;
+        const ratings = form.ratings.value;
+        const availableQuantity = form.availableQuantity.value;
+        const detailDescription = form.detailDescription.value;
+
+        const addToy = { image, name, email, subCategory, price, ratings, availableQuantity, detailDescription }
+        console.log(addToy);
+
+        fetch('http://localhost:5000/addToy', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addToy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    }
     return (
-        <div>
-            <h2>Add Toys</h2>
+        <div className="bg-slate-400">
+            <div className="hero min-h-screen bg-slate-400">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <form className="card-body text-center" onSubmit={btnSubmit}>
+                        <div className="grid grid-cols-4">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Image:</span>
+                                </label>
+                                <input type="url" placeholder="image" name="image" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name:</span>
+                                </label>
+                                <input type="text" value={user.displayName} name="name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email:</span>
+                                </label>
+                                <input type="email" name="email" value={user.email} className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Sub-category:</span>
+                                </label>
+                                <input type="text" placeholder="sub-category" name="subCategory" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Price:</span>
+                                </label>
+                                <input type="text" placeholder="price" name="price" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Ratings:</span>
+                                </label>
+                                <input type="text" placeholder="ratings" name="ratings" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Available quantity:</span>
+                                </label>
+                                <input type="number" placeholder="available quantity" name="availableQuantity" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Detail description:</span>
+                                </label>
+                                <input type="text" placeholder="detail description" name="detailDescription" className="input input-bordered" />
+                            </div>
+                        </div>
+                        <button className="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };
