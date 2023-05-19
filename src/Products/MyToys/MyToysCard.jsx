@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const MyToysCard = ({ toy }) => {
@@ -18,7 +19,7 @@ const MyToysCard = ({ toy }) => {
                         <div>Seller: {seller}</div>
                     </p>
                     <div className="card-actions flex justify-around items-center">
-                        <button className="btn btn-primary">Update</button>
+                        <Link to={`update/${_id}`} className="btn btn-primary">Update</Link>
                         <button className="btn btn-primary">Delete</button>
                     </div>
                 </div>

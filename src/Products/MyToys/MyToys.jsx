@@ -30,6 +30,7 @@ const MyToys = () => {
                             toys.map(toy => <MyToysCard key={toy._id} toy={toy}></MyToysCard>)
                         }
                     </div>)}
+
         </div>
     );
 };
