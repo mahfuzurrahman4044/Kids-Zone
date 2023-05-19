@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+// import Swal from "sweetalert2";
 
 
 const AddToys = () => {
@@ -10,6 +11,7 @@ const AddToys = () => {
         const form = event.target;
         const image = form.image.value;
         const name = form.name.value;
+        const seller = form.seller.value;
         const email = form.email.value;
         const subCategory = form.subCategory.value;
         const price = form.price.value;
@@ -17,7 +19,7 @@ const AddToys = () => {
         const availableQuantity = form.availableQuantity.value;
         const detailDescription = form.detailDescription.value;
 
-        const addToy = { image, name, email, subCategory, price, ratings, availableQuantity, detailDescription }
+        const addToy = { image, name, seller, email, subCategory, price, ratings, availableQuantity, detailDescription }
         console.log(addToy);
 
         fetch('http://localhost:5000/addToy', {
@@ -30,6 +32,14 @@ const AddToys = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                // if (data.insertedId) {
+                //     Swal.fire({
+                //         title: 'Success!',
+                //         text: 'Successfully added',
+                //         icon: 'success',
+                //         confirmButtonText: 'Cool'
+                //     })
+                // }
             })
     }
     return (
@@ -48,7 +58,13 @@ const AddToys = () => {
                                 <label className="label">
                                     <span className="label-text">Name:</span>
                                 </label>
-                                <input type="text" value={user.displayName} name="name" className="input input-bordered" required />
+                                <input type="text" placeholder="name" name="name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Seller:</span>
+                                </label>
+                                <input type="text" value={user.displayName} name="seller" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -80,14 +96,15 @@ const AddToys = () => {
                                 </label>
                                 <input type="number" placeholder="available quantity" name="availableQuantity" className="input input-bordered" />
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Detail description:</span>
-                                </label>
-                                <input type="text" placeholder="detail description" name="detailDescription" className="input input-bordered" />
-                            </div>
+
                         </div>
-                        <button className="btn btn-primary">Submit</button>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Detail description:</span>
+                            </label>
+                            <input type="text" placeholder="detail description" name="detailDescription" className="input input-bordered" />
+                        </div>
+                        <button className="btn btn-primary my-5">Submit</button>
                     </form>
                 </div>
             </div>

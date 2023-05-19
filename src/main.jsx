@@ -12,7 +12,7 @@ import SignUp from './Account/SignUp';
 import AuthProvider from './Provider/AuthProvider';
 import AddToys from './Products/AddToys';
 import MyToys from './Products/MyToys';
-import AllToys from './Products/AllToys';
+import AllToys from './Products/AllToys/AllToys';
 
 const router = createBrowserRouter([
   {
@@ -41,7 +41,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/allToys",
-        element: <AllToys></AllToys>
+        element: <AllToys></AllToys>,
+        loader: () => fetch('http://localhost:5000/addToy')
       }
     ]
   },
