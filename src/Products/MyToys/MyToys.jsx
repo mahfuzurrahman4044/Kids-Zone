@@ -27,10 +27,9 @@ const MyToys = () => {
 
                     <div className="grid grid-cols-4">
                         {
-                            toys.map(toy => <MyToysCard key={toy._id} toy={toy}></MyToysCard>)
+                            toys.map(toy => <MyToysCard key={toy._id} toy={toy} toys={toys} setToys={setToys}></MyToysCard>)
                         }
                     </div>)}
-
         </div>
     );
 };

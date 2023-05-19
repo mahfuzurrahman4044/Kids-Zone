@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 
 const UpdateToys = () => {
     const loadToys = useLoaderData();
-    console.log(loadToys);
     const { _id, price, ratings, availableQuantity, detailDescription } = loadToys;
 
     const handleUpdate = event => {
@@ -30,12 +29,13 @@ const UpdateToys = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.insertedId) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
-                        title: 'Success!',
-                        text: 'Successfully Updated',
+                        position: 'top-end',
                         icon: 'success',
-                        confirmButtonText: 'Cool'
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
                     })
                 }
             })
