@@ -13,6 +13,7 @@ import AuthProvider from './Provider/AuthProvider';
 import AddToys from './Products/AddToys';
 import MyToys from './Products/MyToys/MyToys';
 import AllToys from './Products/AllToys/AllToys';
+import Error from './Error/Error';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: "*",
+    element: <Error></Error>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
