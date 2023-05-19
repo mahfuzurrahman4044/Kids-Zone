@@ -37,7 +37,7 @@ const Header = () => {
                                     </div>
                                     <li><Link className="btn btn-primary btn-logOut" title={user.displayName} onClick={handleLogOut}>Log out</Link></li></> : <li><Link to="/login">Log in</Link></li>
                             }
-                            <li><Link to="/">Blogs</Link></li>
+                            <li><Link to="/blogs">Blogs</Link></li>
                         </ul>
                     </div>
                     <div className="logo-header">
@@ -56,7 +56,7 @@ const Header = () => {
                                 </div>
                                 <li><Link className="btn btn-primary mt-3 ms-2" onClick={handleLogOut}>Log out</Link></li></> : <li><Link to="/login">Log in</Link></li>
                         }
-                        <li><Link to="/">Blogs</Link></li>
+                        <li><Link to="/blogs">Blogs</Link></li>
                     </ul>
                 </div>
             </div>
