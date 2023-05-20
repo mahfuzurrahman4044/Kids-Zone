@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import "./MyToysCard.css"
 
 
 const MyToysCard = ({ toy, toys, setToys }) => {
@@ -24,6 +25,7 @@ const MyToysCard = ({ toy, toys, setToys }) => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
+                        form.reset();
                         if (result.isConfirmed) {
                             Swal.fire(
                                 'Deleted!',
@@ -38,9 +40,9 @@ const MyToysCard = ({ toy, toys, setToys }) => {
         })
     }
     return (
-        <div>
+        <div className="bg-slate-400">
             <div className="card w-96 bg-base-100 shadow-xl">
-                <figure className="px-10 pt-10">
+                <figure className="px-10 pt-10 myImg">
                     <img src={image} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
@@ -53,7 +55,7 @@ const MyToysCard = ({ toy, toys, setToys }) => {
                         <div>{detailDescription}</div>
                     </p>
                     <div className="card-actions flex justify-around items-center">
-                        <Link to={`update/${_id}`} className="btn btn-primary">Update</Link>
+                        <Link to={`/update/${_id}`} className="btn btn-primary">Update</Link>
                         <button className="btn btn-primary" onClick={() => btndelete(_id)}>Delete</button>
                     </div>
                 </div>

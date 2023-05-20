@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const AllToysCard = ({ toy }) => {
     const { _id, image, seller, name, subCategory, price, availableQuantity } = toy;
@@ -34,7 +35,7 @@ const AllToysCard = ({ toy }) => {
                             </td>
                             <td className="text-center">{seller}</td>
                             <th>
-                                <button className="btn btn-primary">details</button>
+                                <Link to={`/details/${_id}`} className="btn btn-primary">details</Link>
                             </th>
                         </tr>
                     </thead>

@@ -1,0 +1,12 @@
+.singleToyImg img {
+    height: 300px;
+    width: 500px;
+    border: 1px solid skyblue;
+    border-radius: 10px;
+}
+
+.bgSingleToyImg{
+    width: 800px;
+    border: 1px;
+    border-radius: 10px;
+}

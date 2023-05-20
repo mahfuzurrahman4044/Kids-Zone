@@ -4,15 +4,15 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className="bg-slate-400">
+            {/* <hr />
             <hr />
-            <hr />
-            <hr />
+            <hr /> */}
             <footer className="footer p-10 text-base-content">
                 <div>
                     <span className="footer-title">Services</span>
                     <a className="link link-hover">Kids Toy</a>
                     <a className="link link-hover">Customize Design</a>
-                    <a className="link link-hover">Repair</a>
+                    <a className="link link-hover">Free Servicing</a>
                     <a className="link link-hover">Home Delivery</a>
                     {/* <a className="link link-hover">Advertisement</a> */}
                 </div>

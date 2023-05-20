@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 const UpdateToys = () => {
     const loadToys = useLoaderData();
+    console.log(loadToys);
     const { _id, price, ratings, availableQuantity, detailDescription } = loadToys;
 
     const handleUpdate = event => {
@@ -44,7 +45,7 @@ const UpdateToys = () => {
 
     return (
         <div className="bg-slate-400">
-            <h2 className="text-center">Updateing for {_id}</h2>
+            <h2 className="text-center text-4xl text-warning">Updateing for {_id}</h2>
             <div className="hero min-h-screen bg-slate-400">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <form className="card-body text-center" onSubmit={handleUpdate}>
