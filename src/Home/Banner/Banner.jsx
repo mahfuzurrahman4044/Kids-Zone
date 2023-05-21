@@ -4,10 +4,18 @@ import carouselImg3 from "../../assets/Carousel/maxresdefault.jpg";
 import carouselImg4 from "../../assets/Carousel/H9b19ce0eeb7e47ab864e86549eceb1fep.jpg";
 import './Banner.css';
 
+// import Aos from "aos";
+// import "aos/dist/aos.css"
+// import { useEffect } from "react";
+
 const Banner = () => {
+    // useEffect(()=>{
+    //     Aos.init()
+    // },[])
+
     return (
         <div className="bg-slate-400 text-center py-5">
-            <div className="carousel w-full">
+            <div className="carousel w-full" data-aos="fade-up">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src={carouselImg1} className="carouselImg" alt="Carousel Image 1" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 lg:left-40 lg:right-40">

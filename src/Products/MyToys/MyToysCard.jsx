@@ -18,7 +18,7 @@ const MyToysCard = ({ toy, toys, setToys }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/uniqueToys/${_id}`, {
+                fetch(`https://kids-zone-server-mahfuzurrahman4044.vercel.app/uniqueToys/${_id}`, {
                     method: "DELETE"
                 }
                 )

@@ -5,7 +5,7 @@ const ShopCard = ({ result }) => {
     const { _id, image, seller, name, subCategory, price, ratings, availableQuantity, detailDescription } = result;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl" data-aos="fade-up">
                 <figure className="px-10 pt-10 myImg">
                     <img src={image} alt="Shoes" className="rounded-xl" />
                 </figure>
@@ -15,8 +15,6 @@ const ShopCard = ({ result }) => {
                     <p>
                         <div>Price: ${price}</div>
                         <div>Ratings: {ratings}</div>
-                        <div>Available Quality: {availableQuantity}</div>
-                        <div>Seller: {seller}</div>
                         <div>{detailDescription}</div>
                     </p>
                     <div>

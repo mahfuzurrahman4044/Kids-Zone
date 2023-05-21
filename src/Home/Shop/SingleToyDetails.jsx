@@ -17,8 +17,8 @@ const SingleToyDetails = () => {
                     <h2 className="flex justify-center">Ratings: {ratings}</h2>
                     <h2 className="flex justify-center">Available quantity: {availableQuantity}</h2>
                     <h2 className="flex justify-center">Seller: {seller}</h2>
-                    <h2 className="flex justify-center">Email:: {email}</h2>
-                    <h2 className="flex justify-center">Details:: {detailDescription}</h2>
+                    <h2 className="flex justify-center">Email: {email}</h2>
+                    <h2 className="flex justify-center">Details: {detailDescription}</h2>
                 </div>
             </div>
         </div>

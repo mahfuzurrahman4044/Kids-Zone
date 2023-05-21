@@ -20,7 +20,7 @@ const UpdateToys = () => {
         console.log(updatedToy);
 
 
-        fetch(`http://localhost:5000/updateToys/${_id}`, {
+        fetch(`https://kids-zone-server-mahfuzurrahman4044.vercel.app/updateToys/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

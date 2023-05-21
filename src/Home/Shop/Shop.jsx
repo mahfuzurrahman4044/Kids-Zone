@@ -11,7 +11,7 @@ const Shop = () => {
     }
 
     useEffect(() => {
-        fetch("http://localhost:5000/addToy")
+        fetch("https://kids-zone-server-mahfuzurrahman4044.vercel.app/addToy")
             .then(res => res.json())
             .then(data => {
                 setVehicles(data)
@@ -24,9 +24,9 @@ const Shop = () => {
     return (
         <div className="bg-slate-400">
             <div className="flex justify-center items-center py-5">
-                <button className="btn btn-primary mx-2" onClick={() => handleActiveButton("Sports Car")}>Sports Car</button>
-                <button className="btn btn-primary mx-2" onClick={() => handleActiveButton("Truck")}>Truck</button>
-                <button className="btn btn-primary mx-2" onClick={() => handleActiveButton("Train")}>Train</button>
+                <button className={`btn btn-primary mx-2 ${activeNav==="Sports Car"? "btn-disabled": "btn-primary"}`} onClick={() => handleActiveButton("Sports Car")}>Sports Car</button>
+                <button className={`btn btn-primary mx-2 ${activeNav==="Truck"? "btn-disabled": "btn-primary"}`} onClick={() => handleActiveButton("Truck")}>Truck</button>
+                <button className={`btn btn-primary mx-2 ${activeNav==="Train"? "btn-disabled": "btn-primary"}`} onClick={() => handleActiveButton("Train")}>Train</button>
             </div>
             <div className="grid lg:grid-cols-4 grid-cols-1 py-5">
                 {

@@ -1,10 +1,18 @@
-import img1 from "../../assets/Client/istockphoto-1006670552-612x612.jpg"
-import img2 from "../../assets/Client/360_F_42083648_THzvkCjCuQ7CEw72asmZabWThvkAFSvZ.jpg"
-import img3 from "../../assets/Client/istockphoto-960250094-612x612.jpg"
+import img1 from "../assets/Client/istockphoto-1006670552-612x612.jpg"
+import img2 from "../assets/Client/360_F_42083648_THzvkCjCuQ7CEw72asmZabWThvkAFSvZ.jpg"
+import img3 from "../assets/Client/istockphoto-960250094-612x612.jpg"
+
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 
 const Review = () => {
+    useEffect(() => {
+        Aos.init()
+    }, [])
     return (
-        <div className="bg-slate-400 py-5">
+        <div className="bg-slate-400 py-5" data-aos="fade-up">
             <h2 className="text-4xl font-semibold text-warning text-center">Client Review</h2>
             <div className="py-5 lg:flex justify-around items-center">
                 <div className="card w-96 bg-base-100 shadow-xl">

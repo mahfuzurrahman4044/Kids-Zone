@@ -1,9 +1,16 @@
+import { useEffect } from "react";
 import logo from "../../../assets/Logo/colorful-3d-logo-kids-zone-isolated-on-white-background.jpg"
 import './Footer.css'
 
+import Aos from "aos";
+import "aos/dist/aos.css"
+
 const Footer = () => {
+    useEffect(()=>{
+        Aos.init()
+    },[])
     return (
-        <div className="bg-slate-400">
+        <div className="bg-slate-400" data-aos="fade-up">
             {/* <hr />
             <hr />
             <hr /> */}

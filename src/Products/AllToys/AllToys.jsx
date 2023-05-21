@@ -1,16 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./AllToys.css";
 import { useLoaderData } from "react-router-dom";
 import AllToysCard from "./AllToysTable";
 
 const AllToys = () => {
-    const loadToys = useLoaderData();
+    const toys = useLoaderData();
+    const [loadToys, setLoadToys] = useState(toys);
     const [showAll, setShowAll] = useState(false);
     const visibleRows = showAll ? loadToys.length : 20;
+    const [searchText, setSearchText] = useState();
 
     const handleShowAll = () => {
         setShowAll(true);
     };
+
+    const handleSearch = (event) => {
+        // console.log("Clicked");
+        event.preventDefault();
+        const text = event.target.text.value;
+        setSearchText(text);
+    }
+
+    // console.log(searchText);
+
+    useEffect(() => {
+        if (searchText) {
+            fetch(`https://kids-zone-server-mahfuzurrahman4044.vercel.app/searchName/${searchText}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    setLoadToys(data);
+                })
+        } else {
+            setLoadToys(toys);
+        }
+    }, [searchText]);
+
 
     return (
         <div className="bg-slate-400 pt-5">
@@ -23,6 +47,10 @@ const AllToys = () => {
             ) : (
                 <>
                     <div className="overflow-x-auto w-full">
+                        <form onSubmit={handleSearch} className="flex justify-center p-5 text-2xl">
+                            <input className="ps-1 ms-2 rounded-md" type="text" name="text" placeholder="search" />
+                            <button className="btn btn-primary ms-2">Search</button>
+                        </form>
                         <table className="table w-full">
                             {/* <thead>
                                 <tr>

@@ -22,7 +22,7 @@ const AddToys = () => {
         const addToy = { image, name, seller, email, subCategory, price, ratings, availableQuantity, detailDescription }
         console.log(addToy);
 
-        fetch('http://localhost:5000/addToy', {
+        fetch('https://kids-zone-server-mahfuzurrahman4044.vercel.app/addToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

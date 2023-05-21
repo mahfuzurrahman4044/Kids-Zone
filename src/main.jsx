@@ -51,17 +51,17 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <UpdateToys></UpdateToys>,
-        loader: ({ params }) => fetch(`http://localhost:5000/uniqueToys/${params.id}`)
+        loader: ({ params }) => fetch(`https://kids-zone-server-mahfuzurrahman4044.vercel.app/uniqueToys/${params.id}`)
       },
       {
         path: "/allToys",
         element: <AllToys></AllToys>,
-        loader: () => fetch('http://localhost:5000/addToy')
+        loader: () => fetch('https://kids-zone-server-mahfuzurrahman4044.vercel.app/addToy')
       },
       {
         path: "/details/:id",
         element: <PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/uniqueToys/${params.id}`)
+        loader: ({ params }) => fetch(`https://kids-zone-server-mahfuzurrahman4044.vercel.app/uniqueToys/${params.id}`)
       }
     ]
   },

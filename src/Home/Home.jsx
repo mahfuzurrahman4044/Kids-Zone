@@ -1,7 +1,7 @@
 import Banner from "./Banner/Banner";
 import Gallery from "./Gallery/Gallery";
 import Services from "./Services";
-import Review from "./Shop/Review";
+import Review from "./Review";
 import Shop from "./Shop/Shop";
 
 const Home = () => {
